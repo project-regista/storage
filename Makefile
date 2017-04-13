@@ -22,8 +22,8 @@ neo4j/start: ## Start Neo4j instance
 	@printf "It will create a Neo4j data directory at '"${PWD}"' if it does not exist.\n"
 	@docker run \
 	-d \
-	--publish=${NEO4J_HTTP_PORT}:${NEO4J_HTTP_PORT} \
-	--publish=${NEO4J_BOLT_PORT}:${NEO4J_BOLT_PORT} \
+	--publish="${NEO4J_HTTP_PORT}":"${NEO4J_HTTP_PORT}" \
+	--publish="${NEO4J_BOLT_PORT}":"${NEO4J_BOLT_PORT}" \
 	--volume="${NEO4J_DATA_VOLUME}":/data \
 	--name "${NEO4J_CONTAINER_NAME}" \
 	neo4j
